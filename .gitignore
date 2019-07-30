@@ -1,0 +1,9 @@
+node_modules
+cypress/screenshots/
+__sapper__/
+.env
+.sessions
+static/svelte-app.json
+static/contributors.jpg
+static/workers
+scripts/svelte-app
