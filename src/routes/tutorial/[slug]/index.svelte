@@ -14,7 +14,7 @@
 </script>
 
 <script>
-	import Repl from '@sveltejs/svelte-repl';
+	import Repl from '../../../editor/Repl.svelte';
 	import { getContext } from 'svelte';
 
 	import ScreenToggle from '../../../components/ScreenToggle.svelte';
@@ -112,7 +112,8 @@
 <style>
 	.tutorial-outer {
 		position: relative;
-		height: calc(100vh - var(--nav-h));
+		/* height: calc(100vh - var(--nav-h)); */
+		height: 100%;
 		overflow: hidden;
 		padding: 0 0 42px 0;
 		box-sizing: border-box;
@@ -165,8 +166,6 @@
 		margin: 4rem 0 1.6rem 0;
 		font-size: var(--h3);
 		line-height: 1;
-		font-weight: 400;
-		color: white;
 	}
 
 	.chapter-markup :global(h2:first-child) {
@@ -192,14 +191,15 @@
 	}
 
 	.chapter-markup::-webkit-scrollbar {
-		background-color: var(--second);
 		width: 8px;
 	}
 
 	.chapter-markup::-webkit-scrollbar-thumb {
-		background-color: rgba(255,255,255,.7);
-		border-radius: 1em;
-		outline: 1px solid green;
+		background-color: rgba(255,255,255,0);
+	}
+
+	.chapter-markup:hover::-webkit-scrollbar-thumb {
+		background-color: rgba(255,255,255,.2);
 	}
 
 	.chapter-markup :global(p) > :global(code),

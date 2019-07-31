@@ -56,7 +56,7 @@
 		height: var(--nav-h);
 		padding: 0 var(--side-nav);
 		margin: 0 auto;
-		background-color: white;
+		background-color: #263238;
 		box-shadow: 0 -0.4rem 0.9rem 0.2rem rgba(0,0,0,.5);
 		font-family: var(--font);
 		z-index: 100;
@@ -163,6 +163,8 @@
 		-webkit-tap-highlight-color: transparent;
 		-webkit-touch-callout: none;
 		padding: 0;
+		font-weight: 650;
+		font-size: var(--h3);
 		/* z-index: 11; */
 	}
 

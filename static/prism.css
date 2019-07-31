@@ -7,13 +7,15 @@
 /*	colors --------------------------------- */
 pre[class*='language-'] {
 	--background: var(--back-light);
-	--base:       hsl(45, 7%, 45%);
-	--comment:    hsl(210, 25%, 60%);
-	--keyword:    hsl(204, 58%, 45%);
-	--function:   hsl(19, 67%, 45%);
-	--string:     hsl(41, 37%, 45%);
-	--number:     hsl(102, 27%, 50%);
-	--tags:       var(--function);
+	--base:       #cfd2d1;
+	--bracket:    #5FB3B3;
+	--comment:    #898e99;
+	--keyword:    #C594C5;
+	--attribute:  #C594C5;
+	--function:   #6699CC;
+	--string:     #99C794;
+	--number:     #F99157;
+	--tags:       #EC5F67;
 	--important:  var(--string);
 }
 
@@ -55,7 +57,7 @@ pre[class*='language-'] {
 .token.doctype,
 .token.cdata       { color: var(--comment) }
 
-.token.punctuation { color: var(--base) }
+.token.punctuation { color: var(--bracket) }
 
 .token.property,
 .token.tag,
@@ -66,11 +68,13 @@ pre[class*='language-'] {
 .token.boolean,
 .token.number       { color: var(--number) }
 
+.token.attr-name    { color: var(--attribute) }
+
 .token.selector,
-.token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
+.token.attr-value,
 .token.inserted      { color: var(--string) }
 
 .token.operator,
@@ -81,7 +85,6 @@ pre[class*='language-'] {
 .token.variable       { color: var(--base) }
 
 .token.atrule,
-.token.attr-value,
 .token.function,
 .token.class-name     { color: var(--function) }
 

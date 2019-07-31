@@ -31,71 +31,63 @@
 
 /*	theme vars */
 .theme-default {
-	--back:       	#ffffff;
-	--back-light: 	#f6fafd;
-	--back-api: 		#eff8ff;
-	--prime:      	#ff3e00;
-	--second:     	#676778;
-	--flash:      	#40b3ff;
-	--heading:	var(--second);
-	--text:      		#444;
-	--sidebar-text: rgba(255, 255, 255, .75);
-	--border-w:  		.3rem; /* border-width  */
-	--border-r:  		.4rem; /* border-radius */
+	--back:         #1d262a;
+	--back-light:   #212b31;
+	--back-api:     #eff8ff;
+	--prime:        #80CFFF;
+	--second:       #263238;
+	--flash:        #40b3ff;
+	--text:         #ffffff;
+	--sidebar-text: rgba(255, 255, 255, .87);
+	--heading:       var(--sidebar-text);
+	--border-w:      .3rem; /* border-width  */
+	--border-r:      .4rem; /* border-radius */
 }
 
 /*	typo vars */
 .typo-default {
 	--code-fs: 1.3rem;
 	--h6:      1.4rem;
-	--h5:      1.6rem;
-	--h4:      1.8rem; /* default font-size */
-	--h3:      2.6rem;
-	--h2:        3rem;
+	--h5:      1.6rem; /* default font-size */
+	--h4:      1.8rem;
+	--h3:      2.2rem;
+	--h2:      2.6rem;
 	--h1:      3.2rem;
 	--linemax:   42em; /* max line-length */
-	--lh:  		 	  1.5; /* base line-height */
+	--lh:         1.5; /* base line-height */
 }
 
 body {
-	--font: 'Overpass', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
+	--font: 'IBM Plex Sans', sans-serif;
+	--font-mono: 'IBM Plex Mono', monospace;
 }
 
 
 /*	fonts ---------------------------------- */
-/* overpass-300normal - latin */
 @font-face {
-	font-family: 'Overpass';
-	font-style: normal;
-	font-weight: 300;
-	src:
-		local('Overpass Light '),
-		local('Overpass-Light'),
-		url('/fonts/overpass/overpass-latin-300.woff2') format('woff2');
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/plex-sans/plex-roman-subset-xs.woff2') format('woff2-variations');
+  font-weight: 100 700;
+  font-style: normal;
+  unicode-range: U+0000-00A4,U+0020,U+00A0,U+2013-201E;
 }
 
-/* overpass-600normal - latin */
 @font-face {
-	font-family: 'Overpass';
-	font-style: normal;
-	font-weight: 600;
-	src:
-		local('Overpass Bold '),
-		local('Overpass-Bold'),
-		url('/fonts/overpass/overpass-latin-600.woff2') format('woff2');
+  font-family: 'IBM Plex Sans';
+  src: url('/fonts/plex-sans/plex-italic-subset-xs.woff2') format('woff2-variations');
+  font-weight: 100 700;
+  font-style: italic;
+  unicode-range: U+0000-00A4,U+0020,U+00A0,U+2013-201E;
 }
 
-/* fira-mono-400normal - latin */
 @font-face {
-	font-family: 'Fira Mono';
-	font-style: normal;
-	font-weight: 400;
-	src:
-		local('Fira Mono Regular '),
-		local('Fira Mono-Regular'),
-		url('/fonts/fira-mono/fira-mono-latin-400.woff2') format('woff2');
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 450;
+  src: local('IBM Plex Mono'),
+    url('/fonts/plex-mono/plex-mono-subset.woff2') format('woff2');
 }
+
 
 /*	base reset ----------------------------- */
 html {
@@ -138,7 +130,10 @@ a:focus { outline: none }
 
 /*	typography ----------------------------- */
 body {
-	font: 300 var(--h4)/var(--lh) var(--font);
+	font-weight: 425;
+	font-size: var(--h5);
+	line-height: var(--lh);
+	font-family: var(--font);
 	background-color: var(--back);
 	color: var(--text);
 
@@ -163,9 +158,10 @@ h1 { font-size: var(--h1) }
 h1, h2 {
 	font-family: var(--font);
 	line-height: 1.25;
+	font-weight: 650;
 }
 
-h3 { font-weight: 300 }
+h3 { font-weight: 650 }
 
 p, ol, ul {
 	margin: 0 0 1em 0;
@@ -174,14 +170,14 @@ p, ol, ul {
 .b, b, strong { font-weight: 600 }
 
 tt, code, kbd, samp {
-	font: 400 var(--code-fs)/1.7 var(--font-mono);
+	font: 450 var(--code-fs)/1.7 var(--font-mono);
 }
 
 code {
 	position: relative;
 	border-radius: .3em;
 	white-space: nowrap;
-	color: #444;
+	color: #cfd2d1;
 	-webkit-font-smoothing: initial;
 }
 
