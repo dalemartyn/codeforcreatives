@@ -11,9 +11,9 @@
 
 <Icons/>
 
-{#if $preloading}
+<!-- {#if $preloading}
 	<PreloadingIndicator/>
-{/if}
+{/if} -->
 
 <main>
 	<slot></slot>

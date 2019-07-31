@@ -186,7 +186,7 @@
 	}
 
 	.chapter-markup :global(blockquote) {
-		background-color: rgba(0,0,0,.17);
+		background-color: var(--third);
 		color: var(--sidebar-text);
 	}
 

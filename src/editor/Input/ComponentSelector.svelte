@@ -1,11 +1,12 @@
 <script>
-	import { getContext, createEventDispatcher } from 'svelte';
+	import { getContext, createEventDispatcher, tick } from 'svelte';
 
 	export let handle_select;
 
 	const { components, selected, request_focus, rebundle } = getContext('REPL');
 
 	let editing = null;
+	let tabInput;
 
 	function selectComponent(component) {
 		if ($selected !== component) {
@@ -77,6 +78,10 @@
 
 		components.update(components => components.concat(component));
 		handle_select(component);
+
+		tick().then(() => {
+			tabInput && tabInput.focus();
+		});
 	}
 </script>
 
@@ -214,7 +219,7 @@
 							<span class="input-sizer">{editing.name + (/\./.test(editing.name) ? '' : `.${editing.type}`)}</span>
 
 							<input
-								autofocus
+								bind:this={tabInput}
 								spellcheck={false}
 								bind:value={editing.name}
 								on:focus={selectInput}

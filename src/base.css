@@ -36,6 +36,7 @@
 	--back-api:     #eff8ff;
 	--prime:        #80CFFF;
 	--second:       #263238;
+	--third:        #2d3c43;
 	--flash:        #40b3ff;
 	--text:         #ffffff;
 	--sidebar-text: rgba(255, 255, 255, .87);
@@ -120,7 +121,11 @@ a {
 }
 
 a:hover, a:active { color: var(--flash) }
-a:focus { outline: none }
+/* a:focus { outline: none } */
+
+*:focus {
+	outline: 2px solid white !important;
+}
 
 /*
 -----------------------------------------------
