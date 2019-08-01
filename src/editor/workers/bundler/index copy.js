@@ -201,7 +201,7 @@ async function get_bundle(uid, mode, cache, lookup) {
 
 	try {
 		bundle = await rollup.rollup({
-			input: './app.js',
+			input: './App.svelte',
 			plugins: [
 				repl_plugin,
 				commonjs,
@@ -223,8 +223,8 @@ async function get_bundle(uid, mode, cache, lookup) {
 }
 
 async function bundle({ uid, components }) {
-	// console.clear();
-	// console.log(`running Svelte compiler version %c${svelte.VERSION}`, 'font-weight: bold');
+	console.clear();
+	console.log(`running Svelte compiler version %c${svelte.VERSION}`, 'font-weight: bold');
 
 	const lookup = {};
 	components.forEach(component => {
@@ -245,7 +245,7 @@ async function bundle({ uid, components }) {
 
 		const dom_result = (await dom.bundle.generate({
 			format: 'iife',
-			name: 'CreativeApp',
+			name: 'SvelteComponent',
 			exports: 'named',
 			sourcemap: true
 		})).output[0];
@@ -264,7 +264,7 @@ async function bundle({ uid, components }) {
 		const ssr_result = ssr
 			? (await ssr.bundle.generate({
 				format: 'iife',
-				name: 'CreativeApp',
+				name: 'SvelteComponent',
 				exports: 'named',
 				sourcemap: true
 			})).output[0]

@@ -115,7 +115,7 @@
 		/* height: calc(100vh - var(--nav-h)); */
 		height: 100%;
 		overflow: hidden;
-		padding: 0 0 42px 0;
+		padding: 0 0 46px 0;
 		box-sizing: border-box;
 	}
 
@@ -260,7 +260,7 @@
 </style>
 
 <svelte:head>
-	<title>{selected.section.title} / {selected.chapter.title} • Svelte Tutorial</title>
+	<title>{selected.section.title} / {selected.chapter.title} • Code for Creatives</title>
 
 	<meta name="twitter:title" content="Svelte tutorial">
 	<meta name="twitter:description" content="{selected.section.title} / {selected.chapter.title}">
@@ -305,8 +305,7 @@
 				workersUrl="workers"
 				{svelteUrl}
 				{rollupUrl}
-				orientation={mobile ? 'columns' : 'rows'}
-				fixed={mobile}
+				{mobile}
 				on:change={handle_change}
 				injectedJS={mapbox_setup}
 				relaxed

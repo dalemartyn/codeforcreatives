@@ -121,11 +121,11 @@ a {
 }
 
 a:hover, a:active { color: var(--flash) }
-/* a:focus { outline: none } */
-
+a:focus { outline: none }
+/*
 *:focus {
 	outline: 2px solid white !important;
-}
+} */
 
 /*
 -----------------------------------------------
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6, blockquote {
 	color: var(--heading);
 }
 
-/* h1, h2, h3, h4, h5, h6 { font-weight: 600 } */
+h1, h2, h3, h4, h5, h6 { font-weight: 575 }
 h6 { font-size: var(--h6) }
 h5 { font-size: var(--h5) }
 h4 { font-size: var(--h4) }
@@ -163,16 +163,13 @@ h1 { font-size: var(--h1) }
 h1, h2 {
 	font-family: var(--font);
 	line-height: 1.25;
-	font-weight: 650;
 }
-
-h3 { font-weight: 650 }
 
 p, ol, ul {
 	margin: 0 0 1em 0;
 }
 
-.b, b, strong { font-weight: 600 }
+.b, b, strong { font-weight: 575 }
 
 tt, code, kbd, samp {
 	font: 450 var(--code-fs)/1.7 var(--font-mono);

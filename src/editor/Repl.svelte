@@ -13,10 +13,8 @@
 	export let packagesUrl = 'https://unpkg.com';
 	export let svelteUrl = `${packagesUrl}/svelte`;
 	export let embedded = false;
-	export let orientation = 'columns';
 	export let relaxed = false;
-	export let fixed = false;
-	export let fixedPos = 50;
+	export let mobile = false;
 	export let injectedJS = '';
 	export let injectedCSS = '';
 
@@ -191,43 +189,69 @@
 		position: relative;
 		width: 100%;
 		height: 100%;
+		display: flex;
 	}
 
-	.container :global(section) {
+	.editor {
 		position: relative;
-		padding: 42px 0 0 0;
+		padding: 50px 0 0 0;
 		height: 100%;
 		box-sizing: border-box;
+		width: 50%;
 	}
 
-	.container :global(section) > :global(*):first-child {
+	.output {
+		position: relative;
+		width: 50%;
+		height: 100%;
+	}
+
+	.editor > :global(*):first-child {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 42px;
+		height: 50px;
 		box-sizing: border-box;
 	}
 
-	.container :global(section) > :global(*):last-child {
+	.editor > :global(*):last-child {
 		width: 100%;
 		height: 100%;
 	}
+
+
+
+	@media (min-width: 768px) {
+		.container {
+			display: block;
+		}
+
+		.editor {
+			width: 100%;
+		}
+
+		.output {
+			position: absolute;
+			z-index: 10;
+			bottom: 5rem;
+			right: 3.5rem;
+			width: 360px;
+			height: 270px;
+			border-radius: 4px;
+			box-shadow: 0 3px 12px rgba(0, 0, 0, .36);
+			overflow: hidden;
+		}
+	}
 </style>
 
-<div class="container" class:orientation>
-	<SplitPane
-		type="{orientation === 'rows' ? 'vertical' : 'horizontal'}"
-		pos="{fixed ? fixedPos : orientation === 'rows' ? 50 : 60}"
-		{fixed}
-	>
-		<section slot=a>
-			<ComponentSelector {handle_select}/>
-			<ModuleEditor bind:this={input} errorLoc="{sourceErrorLoc || runtimeErrorLoc}"/>
-		</section>
+<div class="container">
+	<section class="editor">
+		<ComponentSelector {handle_select}/>
+		<ModuleEditor bind:this={input} errorLoc="{sourceErrorLoc || runtimeErrorLoc}"/>
+	</section>
 
-		<section slot=b style='height: 100%;'>
-			<Output {svelteUrl} {workersUrl} {status} {embedded} {relaxed} {injectedJS} {injectedCSS}/>
-		</section>
-	</SplitPane>
+	<section class="output">
+		<Output {svelteUrl} {workersUrl} {status} {embedded} {relaxed} {injectedJS} {injectedCSS}/>
+	</section>
 </div>

@@ -58,8 +58,6 @@
 
 				const styles = document.querySelectorAll('style[id^=svelte-]');
 
-				${$bundle.dom.code}
-
 				let i = styles.length;
 				while (i--) styles[i].parentNode.removeChild(styles[i]);
 
@@ -75,9 +73,7 @@
 				window.location.hash = '';
 				window._svelteTransitionManager = null;
 
-				window.component = new SvelteComponent.default({
-					target: document.body
-				});
+				${$bundle.dom.code}
 			`);
 
 			error = null;
@@ -106,16 +102,16 @@
 <style>
 	.iframe-container {
 		position: absolute;
-		background-color: white;
+		background-color: #fff;
 		border: none;
 		width: 100%;
 		height: 100%;
+		border-radius: 4px;
 	}
 
 	iframe {
 		width: 100%;
 		height: 100%;
-		/* height: calc(100vh - var(--nav-h)); */
 		border: none;
 		display: block;
 	}

@@ -106,10 +106,13 @@
 		font: 400 12px/1.5 var(--font);
 		background: var(--back);
 		border: none;
-		padding: 12px 28px 12px 8px;
+		border-top: 4px solid transparent;
+		padding: 12px 28px 16px 12px;
 		margin: 0;
 		color: rgba(255, 255, 255, .7);
 		border-radius: 0;
+		font-kerning: none;
+		letter-spacing: .0025em;
 	}
 
 	.file-tabs .button:first-child {
@@ -119,6 +122,7 @@
 	.file-tabs .button.active {
 		color: var(--text);
 		background-color: var(--back-light);
+		border-color: #6599cc;
 	}
 
 	.editable, .uneditable, .input-sizer, input {
@@ -134,7 +138,7 @@
 	input {
 		position: absolute;
 		width: 100%;
-		left: 8px;
+		left: 12px;
 		top: 12px;
 		font: 400 12px/1.5 var(--font);
 		border: none;
@@ -150,7 +154,7 @@
 		top: 4px;
 		width: 28px;
 		text-align: right;
-		padding: 10px 8px 12px 8px;
+		padding: 10px 8px 18px 8px;
 		font-size: 8px;
 		cursor: pointer;
 	}
@@ -171,7 +175,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		padding: 12px 10px 12px 0 !important;
+		padding: 12px 10px 12px 8px !important;
 		height: 40px;
 		text-align: center;
 		background-color: white;

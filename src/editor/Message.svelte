@@ -32,6 +32,7 @@
 		font: 400 12px/1.7 var(--font);
 		margin: 0;
 		border-top: 1px solid white;
+		z-index: 20;
 	}
 
 	.navigable {

@@ -10,8 +10,7 @@
     "start": "node __sapper__/build",
     "test": "mocha -r esm test/**",
     "deploy": "make deploy",
-    "srcdoc:update": "curl https://raw.githubusercontent.com/sveltejs/template/v3/public/global.css > src/Output/srcdoc/styles.css",
-    "srcdoc": "npm run srcdoc:update && node scripts/build-srcdoc.js",
+    "srcdoc": "node scripts/build-srcdoc.js",
     "editor-build": "rollup -c rollup.workers-config.js",
     "editor-dev": "rollup -c rollup.workers-config.js -w"
   },
