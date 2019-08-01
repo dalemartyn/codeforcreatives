@@ -17,6 +17,7 @@
 					if (action === 'eval') {
 						try {
 							const { script } = ev.data.args;
+							console.log(script);
 							eval(script);
 							send_ok();
 						} catch (e) {

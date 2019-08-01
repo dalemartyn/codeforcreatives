@@ -7,8 +7,8 @@ export default function getLocationFromStack(stack, map) {
 
 	if (!match) return null;
 
-	const line = +match[1];
-	const column = +match[2];
+	const line = +match[1] - 22; // bundle is 22 lines down in the proxy.eval.
+	const column = +match[2] + 3; // don't know why the error column value is innacurate
 
 	return trace({ line, column }, map);
 }
@@ -21,7 +21,7 @@ function trace(loc, map) {
 		const segment = segments[i];
 		if (segment[0] === loc.column) {
 			const [, sourceIndex, line, column] = segment;
-			const source = map.sources[sourceIndex].slice(2);
+			const source = map.sources[sourceIndex];
 
 			return { source, line: line + 1, column };
 		}

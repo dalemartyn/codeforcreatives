@@ -81,7 +81,8 @@
 			const loc = getLocationFromStack(e.stack, $bundle.dom.map);
 			if (loc) {
 				e.filename = loc.source;
-				e.loc = { line: loc.line, column: loc.column };
+				e.start = { line: loc.line, column: loc.column };
+			} else {
 			}
 
 			error = e;

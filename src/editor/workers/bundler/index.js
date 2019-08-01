@@ -245,8 +245,6 @@ async function bundle({ uid, components }) {
 
 		const dom_result = (await dom.bundle.generate({
 			format: 'iife',
-			name: 'CreativeApp',
-			exports: 'named',
 			sourcemap: true
 		})).output[0];
 
@@ -264,8 +262,6 @@ async function bundle({ uid, components }) {
 		const ssr_result = ssr
 			? (await ssr.bundle.generate({
 				format: 'iife',
-				name: 'CreativeApp',
-				exports: 'named',
 				sourcemap: true
 			})).output[0]
 			: null;
