@@ -8,10 +8,10 @@ import { extract_frontmatter, extract_metadata, langs, link_renderer } from '../
 const cache = new Map();
 
 function find_tutorial(slug) {
-	const sections = fs.readdirSync(`content/tutorial`);
+	const sections = fs.readdirSync(`content/js`);
 
 	for (const section of sections) {
-		const chapters = fs.readdirSync(`content/tutorial/${section}`).filter(dir => /^\d+/.test(dir));
+		const chapters = fs.readdirSync(`content/js/${section}`).filter(dir => /^\d+/.test(dir));
 		for (const chapter of chapters) {
 			if (slug === chapter.replace(/^\d+-/, '')) {
 				return { section, chapter };
@@ -24,7 +24,7 @@ function get_tutorial(slug) {
 	const found = find_tutorial(slug);
 	if (!found) return found;
 
-	const dir = `content/tutorial/${found.section}/${found.chapter}`;
+	const dir = `content/js/${found.section}/${found.chapter}`;
 
 	const markdown = fs.readFileSync(`${dir}/text.md`, 'utf-8');
 	const app_a = fs.readdirSync(`${dir}/app-a`);
@@ -69,7 +69,7 @@ function get_tutorial(slug) {
 
 	let html = marked(content, { renderer });
 	if (found.chapter.startsWith('01')) {
-		const meta = JSON.parse(fs.readFileSync(`content/tutorial/${found.section}/meta.json`));
+		const meta = JSON.parse(fs.readFileSync(`content/js/${found.section}/meta.json`));
 		html = `<h2>${meta.title}</h2>\n${html}`;
 	}
 

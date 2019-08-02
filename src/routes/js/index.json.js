@@ -7,24 +7,24 @@ let json;
 function get_sections() {
 	const slugs = new Set();
 
-	const sections = fs.readdirSync(`content/tutorial`)
+	const sections = fs.readdirSync(`content/js`)
 		.filter(dir => /^\d+/.test(dir))
 		.map(dir => {
 			let meta;
 
 			try {
-				meta = JSON.parse(fs.readFileSync(`content/tutorial/${dir}/meta.json`, 'utf-8'));
+				meta = JSON.parse(fs.readFileSync(`content/js/${dir}/meta.json`, 'utf-8'));
 			} catch (err) {
 				throw new Error(`Error reading metadata for ${dir}`);
 			}
 
 			return {
 				title: meta.title,
-				chapters: fs.readdirSync(`content/tutorial/${dir}`)
+				chapters: fs.readdirSync(`content/js/${dir}`)
 					.filter(dir => /^\d+/.test(dir))
 					.map(tutorial => {
 						try {
-							const md = fs.readFileSync(`content/tutorial/${dir}/${tutorial}/text.md`, 'utf-8');
+							const md = fs.readFileSync(`content/js/${dir}/${tutorial}/text.md`, 'utf-8');
 							const { metadata } = extract_frontmatter(md);
 
 							const slug = tutorial.replace(/^\d+-/, '');

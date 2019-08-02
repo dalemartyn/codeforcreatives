@@ -1,3 +1,11 @@
+<script context="module">
+	export async function preload() {
+		alert('preload');
+		this.redirect(302, 'js/commands');
+	}
+</script>
+
+
 <script>
 	import Hero from '../components/Hero.svelte';
 </script>
@@ -20,4 +28,4 @@
 	logotype="svelte-logotype.svg"
 />
 
-<a href="/tutorial/commands">Start</a>
+<a href="/js/commands">Start</a>

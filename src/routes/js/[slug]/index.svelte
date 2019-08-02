@@ -1,9 +1,9 @@
 <script context="module">
 	export async function preload({ params }) {
-		const res = await this.fetch(`tutorial/${params.slug}.json`);
+		const res = await this.fetch(`js/${params.slug}.json`);
 
 		if (!res.ok) {
-			return this.redirect(301, `tutorial/commands`);
+			return this.redirect(301, `js/commands`);
 		}
 
 		return {
@@ -58,7 +58,7 @@
 	// TODO is there a non-hacky way to trigger scroll when chapter changes?
 	$: if (scrollable) chapter, scrollable.scrollTo(0, 0);
 
-	const tutorial_repo_link = `${githubUrl}/tree/master/content/tutorial`;
+	const tutorial_repo_link = `${githubUrl}/tree/master/content/js`;
 
 	$: selected = lookup.get(slug);
 	$: improve_link = `${tutorial_repo_link}/${selected.chapter.section_dir}/${selected.chapter.chapter_dir}`;
@@ -284,7 +284,7 @@
 					{/if}
 
 					{#if selected.next}
-						<a class="next" href="tutorial/{selected.next.slug}">Next</a>
+						<a class="next" href="js/{selected.next.slug}">Next</a>
 					{/if}
 				</div>
 
@@ -307,6 +307,6 @@
 	</div>
 
 	{#if mobile}
-		<ScreenToggle bind:offset labels={['tutorial', 'input', 'output']}/>
+		<ScreenToggle bind:offset labels={['Content', 'Editor', 'Output']}/>
 	{/if}
 </div>
