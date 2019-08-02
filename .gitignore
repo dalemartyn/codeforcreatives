@@ -7,3 +7,4 @@ static/svelte-app.json
 static/contributors.jpg
 static/workers
 scripts/svelte-app
+.DS_Store

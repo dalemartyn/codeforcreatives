@@ -3,7 +3,7 @@
 		const res = await this.fetch(`tutorial/${params.slug}.json`);
 
 		if (!res.ok) {
-			return this.redirect(301, `tutorial/turtle`);
+			return this.redirect(301, `tutorial/commands`);
 		}
 
 		return {
@@ -22,7 +22,8 @@
 	import TableOfContents from './_TableOfContents.svelte';
 
 	import {
-		svelteUrl
+		svelteUrl,
+		githubUrl
 	} from '../../../config';
 
 	export let slug;
@@ -59,9 +60,7 @@
 	// TODO is there a non-hacky way to trigger scroll when chapter changes?
 	$: if (scrollable) chapter, scrollable.scrollTo(0, 0);
 
-	// TODO: this will need to be changed to the master branch, and probably should be dynamic instead of included
-	//   here statically
-	const tutorial_repo_link = 'https://github.com/sveltejs/svelte/tree/master/site/content/tutorial';
+	const tutorial_repo_link = `${githubUrl}/tree/master/content/tutorial`;
 
 	$: selected = lookup.get(slug);
 	$: improve_link = `${tutorial_repo_link}/${selected.chapter.section_dir}/${selected.chapter.chapter_dir}`;
