@@ -13,7 +13,7 @@
     "srcdoc": "node scripts/build-srcdoc.js",
     "editor-build": "rollup -c rollup.workers-config.js",
     "editor-dev": "rollup -c rollup.workers-config.js -w",
-    "export": "npx sapper export",
+    "export": "npm run editor-build && npx sapper export",
     "serve": "npx serve __sapper__/export"
   },
   "dependencies": {
