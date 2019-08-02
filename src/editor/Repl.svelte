@@ -1,6 +1,6 @@
 <script>
 	import { onMount, setContext, createEventDispatcher } from 'svelte';
-	import { writable } from 'svelte/store';
+	import { writable, derived } from 'svelte/store';
 	import SplitPane from './SplitPane.svelte';
 	import CodeMirror from './CodeMirror.svelte';
 	import ComponentSelector from './Input/ComponentSelector.svelte';
@@ -33,7 +33,7 @@
 
 	export async function set(data) {
 		components.set(data.components);
-		selected.set(data.components[0]);
+		selected.set($tabs[0]);
 
 		rebundle();
 
@@ -71,6 +71,11 @@
 	const dispatch = createEventDispatcher();
 
 	const components = writable([]);
+	// components starting with underscores are hidden from the editor.
+	const tabs = derived(
+		components,
+		$components => $components.filter(c => !c.name.startsWith('_'))
+	);
 	const selected = writable(null);
 	const bundle = writable(null);
 
@@ -104,6 +109,7 @@
 
 	setContext('REPL', {
 		components,
+		tabs,
 		selected,
 		bundle,
 		compile_options,
@@ -252,6 +258,6 @@
 	</section>
 
 	<section class="output">
-		<Output {svelteUrl} {workersUrl} {status} {embedded} {relaxed} {injectedJS} {injectedCSS}/>
+		<Output {status} {relaxed} {injectedJS} {injectedCSS}/>
 	</section>
 </div>

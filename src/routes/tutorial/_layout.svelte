@@ -7,8 +7,8 @@
 
 <script>
 	import { setContext } from 'svelte';
-
 	export let sections;
+	export let segment;
 	setContext('tutorial', { sections });
 </script>
 

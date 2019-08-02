@@ -3,7 +3,7 @@
 		const res = await this.fetch(`tutorial/${params.slug}.json`);
 
 		if (!res.ok) {
-			return this.redirect(301, `tutorial/basics`);
+			return this.redirect(301, `tutorial/turtle`);
 		}
 
 		return {
@@ -22,8 +22,6 @@
 	import TableOfContents from './_TableOfContents.svelte';
 
 	import {
-		mapbox_setup, // needed for context API tutorial
-		rollupUrl,
 		svelteUrl
 	} from '../../../config';
 
@@ -304,10 +302,8 @@
 				bind:this={repl}
 				workersUrl="workers"
 				{svelteUrl}
-				{rollupUrl}
 				{mobile}
 				on:change={handle_change}
-				injectedJS={mapbox_setup}
 				relaxed
 			/>
 		</div>

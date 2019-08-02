@@ -3,7 +3,7 @@
 
 	export let handle_select;
 
-	const { components, selected, request_focus, rebundle } = getContext('REPL');
+	const { components, tabs, selected, request_focus, rebundle } = getContext('REPL');
 
 	let editing = null;
 	let tabInput;
@@ -205,7 +205,7 @@
 <div class="component-selector">
 	{#if $components.length}
 		<div class="file-tabs" on:dblclick="{addNew}">
-			{#each $components as component}
+			{#each $tabs as component}
 				<div
 					id={component.name}
 					class="button"
@@ -214,9 +214,9 @@
 					on:click="{() => selectComponent(component)}"
 					on:dblclick="{e => e.stopPropagation()}"
 				>
-					{#if component.name == 'App'}
+					{#if component.name == 'app'}
 						<div class="uneditable">
-							App.svelte
+							{component.name}.{component.type}
 						</div>
 					{:else}
 						{#if component === editing}
