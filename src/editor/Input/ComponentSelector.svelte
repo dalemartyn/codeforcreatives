@@ -64,8 +64,8 @@
 
 	function addNew() {
 		const component = {
-			name: uid++ ? `Component${uid}` : 'Component1',
-			type: 'svelte',
+			name: uid++ ? `file${uid}` : 'file1',
+			type: 'js',
 			source: ''
 		};
 
