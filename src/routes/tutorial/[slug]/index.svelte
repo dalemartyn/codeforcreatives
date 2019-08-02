@@ -50,10 +50,8 @@
 
 			lookup.set(chapter.slug, obj);
 
-			if (process.browser) { // pending https://github.com/sveltejs/svelte/issues/2135
-				if (prev) prev.next = obj;
-				prev = obj;
-			}
+			if (prev) prev.next = obj;
+			prev = obj;
 		});
 	});
 

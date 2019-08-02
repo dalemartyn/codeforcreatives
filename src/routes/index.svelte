@@ -19,3 +19,5 @@
 	outline="svelte-logo-outline.svg"
 	logotype="svelte-logotype.svg"
 />
+
+<a href="/tutorial/commands">Start</a>
