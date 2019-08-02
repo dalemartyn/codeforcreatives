@@ -9,6 +9,9 @@ let packagesUrl;
 let svelteUrl;
 let siteUrl;
 let current_id;
+let staticFiles = [
+	'/js/turtle.js'
+];
 
 self.addEventListener('message', event => {
 	switch (event.data.type) {
@@ -121,7 +124,7 @@ async function get_bundle(uid, mode, cache, lookup) {
 			if (importee in lookup) return importee;
 
 			// importing from /static/js
-			if (importee.startsWith('/js')) return importee;
+			if (staticFiles.includes(importee)) return importee;
 
 			// importing from a URL
 			if (importee.startsWith('http:') || importee.startsWith('https:')) return importee;
