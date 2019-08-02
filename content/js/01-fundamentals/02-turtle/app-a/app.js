@@ -1,4 +1,4 @@
-import turtle from './_turtle.js';
+import turtle from '/js/turtle.js';
 
 let distance = 40;
 let sides = 10;

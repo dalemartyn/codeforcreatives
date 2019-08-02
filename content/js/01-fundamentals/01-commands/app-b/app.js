@@ -1,4 +1,4 @@
-import turtle from './_turtle.js';
+import turtle from '/js/turtle.js';
 
 
 turtle.forwards(100);
