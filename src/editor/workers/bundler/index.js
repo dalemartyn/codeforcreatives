@@ -7,6 +7,7 @@ self.window = self; // egregious hack to get magic-string to work in a worker
 
 let packagesUrl;
 let svelteUrl;
+let siteUrl;
 let current_id;
 
 self.addEventListener('message', event => {
@@ -14,6 +15,7 @@ self.addEventListener('message', event => {
 		case 'init':
 			packagesUrl = event.data.packagesUrl;
 			svelteUrl = event.data.svelteUrl;
+			siteUrl = event.data.siteUrl;
 			importScripts(`${svelteUrl}/compiler.js`);
 
 			break;
@@ -117,6 +119,9 @@ async function get_bundle(uid, mode, cache, lookup) {
 
 			// importing from another file in REPL
 			if (importee in lookup) return importee;
+
+			// importing from /static/js
+			if (importee.startsWith('/js')) return importee;
 
 			// importing from a URL
 			if (importee.startsWith('http:') || importee.startsWith('https:')) return importee;
