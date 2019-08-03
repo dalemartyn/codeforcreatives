@@ -1,9 +1,6 @@
 import turtle from '/js/turtle.js';
 
-turtle.setPosition(250, 40);
-
-turtle.forwards(100);
-turtle.rotate(90);
+turtle.setPosition(250, 120);
 
 let sides = 7;
 let angle = 360 / sides;
@@ -11,7 +8,7 @@ let length = 90;
 
 let i = 0;
 let j = 0;
-while (j < 100) {
+while (j < 36) {
 	while (i < sides) {
 		turtle.forwards(length);
 		turtle.rotate(angle);
