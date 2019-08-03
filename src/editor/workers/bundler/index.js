@@ -2,23 +2,21 @@ import * as rollup from 'rollup/dist/rollup.browser.es.js';
 import commonjs from './plugins/commonjs.js';
 import glsl from './plugins/glsl.js';
 import json from './plugins/json.js';
+import loopprotect from './plugins/loopprotect.js';
+import staticFiles from '../staticFiles.js';
 
 self.window = self; // egregious hack to get magic-string to work in a worker
 
 let packagesUrl;
 let svelteUrl;
-let siteUrl;
 let current_id;
-let staticFiles = [
-	'/js/turtle.js'
-];
 
 self.addEventListener('message', event => {
 	switch (event.data.type) {
 		case 'init':
 			packagesUrl = event.data.packagesUrl;
 			svelteUrl = event.data.svelteUrl;
-			siteUrl = event.data.siteUrl;
+
 			importScripts(`${svelteUrl}/compiler.js`);
 
 			break;
@@ -214,7 +212,8 @@ async function get_bundle(uid, mode, cache, lookup) {
 				repl_plugin,
 				commonjs,
 				json,
-				glsl
+				glsl,
+				loopprotect,
 			],
 			inlineDynamicImports: true,
 			onwarn(warning) {
