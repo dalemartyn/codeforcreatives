@@ -230,7 +230,7 @@ async function get_bundle(uid, mode, cache, lookup) {
 }
 
 async function bundle({ uid, components }) {
-	// console.clear();
+	console.clear();
 	// console.log(`running Svelte compiler version %c${svelte.VERSION}`, 'font-weight: bold');
 
 	const lookup = {};

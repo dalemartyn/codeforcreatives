@@ -15,6 +15,5 @@ export default ['compiler', 'bundler'].map(x => ({
 		resolve(),
 		json(),
 		!dev && terser()
-	],
-	treeshake: false
+	]
 }));

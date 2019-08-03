@@ -58,9 +58,12 @@ class Turtle {
 			}
 		}
 
-		let path = this.canvas.makePath.apply(this.canvas, points);
-		path.stroke = '#000';
-		path.linewidth = 1.5;
+		if (points.length >= 4) {
+			let path = this.canvas.makePath.apply(this.canvas, points);
+			path.stroke = '#000';
+			path.linewidth = 1.5;
+		}
+
 		this.canvas.update();
 	}
 }

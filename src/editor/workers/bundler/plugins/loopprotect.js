@@ -113,11 +113,10 @@ const loopProtect = (timeout = 100, extra = null) => {
 	};
 };
 
-function onBreak(line) {
-	throw new Error(`Infinite loop on line ${line}`);
-}
-
-Babel.registerPlugin('loopProtection', loopProtect(100, onBreak));
+// can't use named function while minifying this script.
+Babel.registerPlugin('loopProtection', loopProtect(100, (l) => {
+	throw new Error('Infinite loop on line ' + l);
+}));
 
 function transform(source) {
 	return Babel.transform(source, {
