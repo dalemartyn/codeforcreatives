@@ -59,7 +59,7 @@ class Turtle {
 		}
 
 		if (points.length >= 4) {
-			let path = this.canvas.makePath.apply(this.canvas, points);
+			let path = this.canvas.makePath(...points, false);
 			path.stroke = '#000';
 			path.linewidth = 1.5;
 		}
